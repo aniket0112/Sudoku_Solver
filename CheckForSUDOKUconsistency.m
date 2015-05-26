@@ -1,5 +1,7 @@
-function[flag]=CheckForSUDOKUconsistency(ANSWER)
-flag=0;
+%this function checks for row,column,3x3box consistency and the next
+%possible elements must not be zero. i.e. no further solution
+function[flag]=CheckForSUDOKUconsistency(ANSWER,all_possible_elements)
+flag=0;%flag 1 means inconsistent
 for i=1:9
     k=1;
     l=1;
@@ -42,9 +44,18 @@ for i=1:9
             clear elements;
             clear element_array;
     end
+    s=size(all_possible_elements);
+    for i=1:s(1)
+        if all_possible_elements(i,3)==0
+            flag=1;
+            return
+        end
+    end
+    
     clear row;
     clear column;
     clear u_row;
     clear u_column;
 end
+clear all_possible_elements;
 end

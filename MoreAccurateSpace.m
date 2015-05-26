@@ -1,4 +1,4 @@
-function[minimumarray]=MoreAccurateSpace(ANSWER)
+function[minimumarray,possible_element_array]=MoreAccurateSpace(ANSWER)
 i5=1;
 
 for x3=1:9                                                          %this loop finds an array of all
@@ -27,4 +27,5 @@ for i=1:s2(1)
     j=j+1;
     end
 end
+clearvars -except possible_element_array minimumarray
 end

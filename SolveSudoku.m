@@ -1,9 +1,9 @@
-function [flag,ANSWER]=SolveSudoku(ANSWER,minimumarray,all_possible_elements)%minimumarray contains coordinates with lease possible candidates 
-                                                    %all_possible_elements has all empty coordinates and possible candidates size
+function [flag]=SolveSudoku(ANSWER,minimumarray,all_possible_elements)%minimumarray contains coordinates with lease possible candidates 
+global ANSWEROUT;                                                 %all_possible_elements has all empty coordinates and possible candidates size
 flag2=0;                                            %Flag2 to notify that a swap has been done in this function earlier
 if CheckForEmptyBox(ANSWER)==0                      %if flag is 1 loop ends and answer is displayed
     flag=1;
-    ANSWER=ANSWER;
+    ANSWEROUT=ANSWER;
     return
 end
 s3=size(minimumarray);
@@ -20,7 +20,7 @@ s3=size(minimumarray);
             [minimumarray1,all_possible_elements1]=MoreAccurateSpace(ANSWER);%calculate all parameters calculated above for recursion
             end
             if(SolveSudoku(ANSWER,minimumarray1,all_possible_elements1)==1)
-                [flag,ANSWER]=SolveSudoku(ANSWER,minimumarray1,all_possible_elements1);              %if recursion ends in flag=1 then return 1
+                flag=1;              %if recursion ends in flag=1 then return 1
                 return
             end
             s2=size(possible_elements);                                     %if recursion does not give 1 return then check if stepped out function had two elements or one

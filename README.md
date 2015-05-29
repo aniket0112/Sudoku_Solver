@@ -9,9 +9,11 @@ This project was made with the aims of learning some basics of image processing 
 
 How can this be used? 
 ---------------------
-•The project can solve a 9x9 Sudoku in 3 seconds including the image-processing time. Backtracking proves to be a great algorithm which is used in the Sudoku solving section of program.
-•Instead of Sudoku solving, the project might be used to carry out several calculations on paper with some minor changes; saving the time of daily work of feeding it to the computer.
-•A small step towards taking inputting device to next generation.
+â€¢The project can solve a 9x9 Sudoku in 3 seconds including the image-processing time. Backtracking proves to be a great algorithm which is used in the Sudoku solving section of program.
+
+â€¢Instead of Sudoku solving, the project might be used to carry out several calculations on paper with some minor changes; saving the time of daily work of feeding it to the computer.
+
+â€¢A small step towards taking inputting device to next generation.
 
 How to use?
 -----------

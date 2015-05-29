@@ -1,13 +1,21 @@
-# Sudoku_Solver
-A sudoku solving program that uses MATLAB to take input of sudoku maze from an image file.
-The repository has all user-defined functions used by author for the process.
+Sudoku Solver
+-------------
+A  Sudoku solving program that uses MATLAB to take input of Sudoku maze from an image file.
+The repository has all user-defined functions used by author for the process. 
 
-SolveSudoku.m is the main function. Contains all other functions as per work flow.
+Why was this made?
+------------------
+This project was made with the aims of learning some basics of image processing and harness the environment of MATLAB. In present times, Image Processing and Character/Object recognition is going to be a necessity sooner or later. Incorporating Image Processing to various daily appliance might make world a smarter and better place.
 
-BackTrackAlgo.m is the Algortihm following part of program.
+How can this be used? 
+---------------------
+•The project can solve a 9x9 Sudoku in 3 seconds including the image-processing time. Backtracking proves to be a great algorithm which is used in the Sudoku solving section of program.
+•Instead of Sudoku solving, the project might be used to carry out several calculations on paper with some minor changes; saving the time of daily work of feeding it to the computer.
+•A small step towards taking inputting device to next generation.
 
-FilterAndOCR.m does the image processing aided by SettingUpAGrid.m and SettingOutputMatrix.m
-CheckForSUDOKUconsistency.m checks whether SUDOKU puzzle follows the rules of SUDOKu.
-CheckForEmptyBox.m checks for empty boxes in the matrix.
-Main Functions are : FindMinArray,CollectElements,PossibleValues.
->>Project is ongoing. Troubles with Sudoku Solving algortihm.
+How to use?
+-----------
+The main program is the BackTrackAlgo.m.
+FilterAndOCR.m is the image-processing script.
+SolveSudoku.m solves the Sudoku using Backtracking algorithm.
+Further explanation of most functions and scripts have been described in code itself.

@@ -7,4 +7,5 @@ if roi(i,2)+roi(i,4)>column
     flag=1;
     return
 end
+flag=0;
 end

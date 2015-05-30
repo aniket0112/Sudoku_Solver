@@ -1,7 +1,7 @@
 %For using this use SettingOutputMatrixwithStraighteningandCustomiztion.m
 
 %Read Image.
-image = imread('sudokuexample.jpg');                        
+image = imread('sudokuexample2.jpg');                        
 
 %Find rectangular region to be cropped.
 grayimage=rgb2gray(image);
@@ -61,7 +61,7 @@ stats=regionprops(connectedComponents,'Eccentricity','Area','MajorAxisLength');
 mask=binarycrop;
 mask(vertcat(connectedComponents.PixelIdxList{[stats.Eccentricity]<0.6 | [stats.Area]<400 | [stats.Area]>4000 | [stats.MajorAxisLength]>10000}))=0;
 masker=imerode(mask,strel('disk',2));
-SettingUpAGridwithCustomisation.m;
+SettingUpAGridwithCustomisation;
 
 %Collect [x y] coordinates of ROI.
 xy=roi(:,[1 2]);

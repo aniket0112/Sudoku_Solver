@@ -1,19 +1,16 @@
 %For using this use SettingOutputMatrixwithStraighteningandCustomiztion.m
 
 %Read Image.
-image = imread('sudokuexample2.jpg');                        
-
-%Find rectangular region to be cropped.
+image=imread('sudokuexample4.jpg');
 grayimage=rgb2gray(image);
-grayimage=imadjust(grayimage);
-grayimage=imadjust(grayimage,[0.4 1.0],[0.0 1.0]);
-removeborder=imclearborder(grayimage);                      
-binarymask=removeborder>50;                                 
-binarymask2=imopen(binarymask,strel('disk',5));             
-connComp=bwconncomp(binarymask2);                           
+contrastgrayimage=imadjust(grayimage);
+removeborder=imclearborder(contrastgrayimage);
+binary=removeborder>20;
+connComp=bwconncomp(binary);                           
 stats=regionprops(connComp,'Area');                         
-mask=binarymask2;                                           
-mask(vertcat(connComp.PixelIdxList{[stats.Area]<3000}))=0;
+mask=binary;                                           
+mask(vertcat(connComp.PixelIdxList{[stats.Area]<1500}))=0;
+straighteningobject=imerode(mask,strel('disk',6));
 
 %Find coordinates of Rectangular region
 [y,x]=find(mask);
@@ -49,19 +46,17 @@ transform1=imtransform(grayimage,t);
 
 %Crop the image.
 crop=imcrop(transform1,[C(1,1),C(1,2),C(2,2)-C(1,2),C(4,1)-C(1,1)]);
-
-%Enhance Brighter and Darker regions.
-binarycrop=imadjust(crop,[0.0 0.4],[0.0 1.0]);
-binarycrop=im2bw(crop,0.3);
-binarycrop=~binarycrop;
+binarycrop=~(imsharpen(imadjust(crop))>124);
 
 %Filter all connected components based on properties and their values.
 connectedComponents=bwconncomp(binarycrop);
 stats=regionprops(connectedComponents,'Eccentricity','Area','MajorAxisLength');
 mask=binarycrop;
-mask(vertcat(connectedComponents.PixelIdxList{[stats.Eccentricity]<0.6 | [stats.Area]<400 | [stats.Area]>4000 | [stats.MajorAxisLength]>10000}))=0;
-masker=imerode(mask,strel('disk',2));
-SettingUpAGridwithCustomisation;
+masker=imdilate(mask,strel('disk',2));
+masker(vertcat(connectedComponents.PixelIdxList{[stats.Eccentricity]<0.6 |[stats.Area]<400| [stats.Area]>3000 | [stats.MajorAxisLength]>10000}))=0;
+masker=imerode(masker,strel('disk',2));
+masker1=imerode(masker,strel('disk',1));
+SettingUpAGridUpdated;
 
 %Collect [x y] coordinates of ROI.
 xy=roi(:,[1 2]);
@@ -134,4 +129,4 @@ if i~=0
 end
 
 %Do OCR when satisfied with grid and store it.
-ocrtext=ocr(masker,roi,'TextLayout','Block','CharacterSet','123456789');
+ocrtext=ocr(masker1,roi,'TextLayout','Block','CharacterSet','123456789');

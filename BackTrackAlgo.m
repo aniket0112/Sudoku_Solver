@@ -1,9 +1,9 @@
 %Input of image and Image Processing for efficient character extraction.
-FilterAndOCR;
+FilterAndOCRUpdated;
 global ANSWEROUT;
 
 %Arranging answer of OCR in a matrix
-SettingOutputMatrix;                                    
+SettingOutputMatrixUpdated;                                    
 ANSWER=OUT;
 clearvars -except ANSWER ANSWEROUT;
 

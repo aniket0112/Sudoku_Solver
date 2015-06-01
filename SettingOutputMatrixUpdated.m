@@ -4,7 +4,12 @@ for i=1:81
     a=isempty(ocrtext(i).Words);
     if(a==1)
         word(i)={'0'};
-    else word(i)=ocrtext(i).Words;
+    else
+        if ocrtext(i).WordConfidences>0.5
+            word(i)=ocrtext(i).Words;
+        else
+            word(i)={'x'};
+        end
     end
 end
 wordMatrix=cell2mat(word);

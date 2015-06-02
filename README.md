@@ -19,11 +19,12 @@ Software needed :
 MATLAB (any version, no use of “helper functions”  hence compatible with previous versions than 2014 also). 
 
 Steps :
+
 1.	Clone the repository to your local.
 
-2.	Put an image of a Sudoku puzzle in the folder where you clone it. Remember the name of image. Try to take a picture which is clearer and contains as minimum other objects other than the Sudoku puzzle as possible. For examples I have put a few sample images in the repository.
+2.	Put an image of a Sudoku puzzle in the folder where you clone it. Remember the name of image. Try to take a picture which is clearer and contains minimum objects other than the Sudoku puzzle. For examples, I have put a few sample images in the repository.
 
-3.	Open MATLAB and type cd and path to your directory of repository or else you can browse from the Current Folder pane on the left (by default).
+3.	Open MATLAB and type cd and path of your directory containing repository or else you can browse from the Current Folder pane on the left (by default).
 
 4.	Open BackTrackAlgo.m.
 
@@ -34,9 +35,9 @@ image=imread(‘filename.extension’);
 
 7.	Save this. Go back to BackTrackAlgo.m and hit Run.
 
-8.	Wait for a few seconds and you will be prompted with an image having boxes of ROI for OCR(Character Recognition of characters within the box). Make sure no box has intersection with a part of digit of other box or else the resulting matrix will be faulty. To customise a misplaced box, type in the number of box in the command window and you will be prompted with a menu to move it. When satisfied, click GO.
+8.	Wait for a few seconds and you will be prompted with an image having boxes of ROI for OCR(Recognition of characters within the box). Make sure no box has intersection with a part of digit of other box or else the resulting matrix will be faulty. To customise a misplaced box, type in the number of box in the command window and you will be prompted with a menu to move it. When satisfied, click GO. If you don't need any customization type in 0 in the command window when asked for "roi".
 
-9.	Your ANSWER will be displayed in less than 5 seconds in the command window.
+9.	Your ANSWER will be displayed in less than 5 seconds in the command window if all went well.
 
 P.S. Work is in progress; will keep incorporating updates to the repository.
 
